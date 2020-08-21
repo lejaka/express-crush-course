@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 //port running on
 const PORT = process.env.PORT || 5000;
-const municipalities = require("./Municipalities");
+const municipalities = require("./municipalities");
 //adding route
 //function vs arrow function
 // app.get('/', function(req,res){

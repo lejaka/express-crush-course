@@ -1,4 +1,4 @@
-[
+const municipalities = [
     {
         id: 1,
         name: "Buffalo City Metropolitan Municipality",
