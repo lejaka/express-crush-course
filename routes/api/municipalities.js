@@ -73,4 +73,25 @@ router.put("/", (req, res) => {
     }
 });
 
+//Deleting an object 
+router.delete("/:id", (req, res) => {
+    const found = municipalities.some(municipalities => municipalities.id == req.params.id);
+    if(found==true){
+        for(municipality of municipalities){
+            if(municipality.id==req.params.id){
+                const index = municipalities.findIndex(municipality => municipality.id == req.params.id);
+                municipalities.splice(index, 1);
+                res.json({
+                    message: `Municipality ${req.params.id} ID is deleted`
+                });
+            }
+        }   
+    }
+    else{
+        res.status(400).json({
+            message: `Municipality with ${req.params.id} ID was not found ${moment().format()}`
+        });
+    }
+});
+
 module.exports = router;
