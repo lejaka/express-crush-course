@@ -5,11 +5,8 @@ const path = require("path");
 //port running on
 const PORT = process.env.PORT || 5000;
 const municipalities = require("./municipalities");
-//creating a Middlewear
-const logger = (req, res, next) => {
-    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}: ${moment().format()}`);
-    next();
-};
+const logger = require("./middlewear/logger");
+
 //adding route
 //function vs arrow function
 // app.get('/', function(req,res){
