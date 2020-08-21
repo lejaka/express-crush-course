@@ -56,13 +56,13 @@ router.put("/", (req, res) => {
         });
     }
 
-    const found = municipalities.some(municipalities => municipalities.name == parseInt(req.params.name));
+    const found = municipalities.some(municipalities => municipalities.name == existingMunicipality.name);
     if(found==true){
         for(municipality of municipalities){
             if(existingMunicipality.name == municipality.name){
                 console.log(`This is the municipality ${municipality.name} to update`);
                 municipality.province = existingMunicipality.province;
-                console.log(`The municipality ${municipality.name} changed to \n ${municipality}`);
+                res.json(municipalities);
             } 
         }
     }
