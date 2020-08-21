@@ -1,12 +1,13 @@
-const express = require('express');
+const express = require("express");
+const moment = require("moment");
 const app = express();
-const path = require('path');
+const path = require("path");
 //port running on
 const PORT = process.env.PORT || 5000;
 const municipalities = require("./municipalities");
 //creating a Middlewear
 const logger = (req, res, next) => {
-    console.log("Hello Middlewear");
+    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}: ${moment().format()}`);
     next();
 };
 //adding route
