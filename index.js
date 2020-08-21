@@ -58,6 +58,7 @@ const municipalities = [
 //Using static folder with html pages
 app.use(express.static(path.join(__dirname, "public")));
 
+//Get all municipalities
 app.get('/api/municipalities', function(req,res){
     res.json(municipalities);
 });
