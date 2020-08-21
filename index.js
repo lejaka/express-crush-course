@@ -6,6 +6,11 @@ const path = require("path");
 const PORT = process.env.PORT || 5000;
 const municipalities = require("./municipalities");
 const logger = require("./middlewear/logger");
+
+//Body parse middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+
 const router = require("./routes/api/municipalities");
 
 //adding route
