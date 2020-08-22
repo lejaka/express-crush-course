@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const moment = require("moment");
 const uuid = require("uuid");
-const municipalities = require("../../municipalities");
+const municipalities = require("../../municipalitiesData");
 
 //Get all municipalities
-router.get("/", function(req,res){
+router.get("", function(req,res){
     res.json(municipalities);
 });
 
