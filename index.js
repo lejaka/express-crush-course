@@ -2,13 +2,27 @@ const express = require("express");
 const moment = require("moment");
 const app = express();
 const path = require("path");
+const db = require("./models");
+const controllerMunicipality = require("./controllers/municipality.js");
+const controllerContact = require("./controllers/contact.js");
+
 //port running on
 const PORT = process.env.PORT || 5000;
 const municipalities = require("./municipalitiesData");
 const logger = require("./middlewear/logger");
 const bodyParser = require('body-parser');
 
+const run = async () => {
 
+};
+
+// db.sequelize.sync();
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
+    run();
+  });
+
+  
 //Body parse middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
